@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
+#import "MultipartResponseParser.h"
+
 @interface MultipartResponseParserTests : XCTestCase
 
 @end
@@ -26,9 +28,12 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testResponseData
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"response" ofType:@"data"]];
+
+    NSArray *items = [MultipartResponseParser parseData:data];
+    XCTAssertEqual(items.count, 1, @"bad parts count");
 }
 
 @end

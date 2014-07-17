@@ -10,4 +10,9 @@
 
 @implementation MultipartResponseParser
 
++ (NSArray *)parseData:(NSData *)data
+{
+    return nil;
+}
+
 @end

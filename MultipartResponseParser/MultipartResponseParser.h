@@ -10,4 +10,6 @@
 
 @interface MultipartResponseParser : NSObject
 
++ (NSArray *)parseData:(NSData *)data;
+
 @end
