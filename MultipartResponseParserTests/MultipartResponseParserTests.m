@@ -45,4 +45,12 @@
     XCTAssert(part[kMultipartHeadersKey], @"no part header");
 }
 
+- (void)testPartBody
+{
+    NSDictionary *part = [self.parts firstObject];
+    NSData *body = part[kMultipartBodyKey];
+    XCTAssert([body isKindOfClass:[NSData class]], @"bad body class");
+    XCTAssertEqual(body.length, 1088, @"bad body length");  // correct length 1076 ?? (from headers)
+}
+
 @end

@@ -40,17 +40,21 @@ NSString *const kMultipartBodyKey = @"body";
 + (NSArray *)splitParts:(NSData *)partsData
 {
     NSUInteger len = partsData.length;
+    NSData *lineEnd = [@"\r\n" dataUsingEncoding:NSASCIIStringEncoding];
 
     NSRange boundaryRange = ({
-        NSData *boundaryEnd = [@"\r\n" dataUsingEncoding:NSASCIIStringEncoding];
-        [partsData rangeOfData:boundaryEnd options:0 range:NSMakeRange(0, len)];
+        [partsData rangeOfData:lineEnd options:0 range:NSMakeRange(0, len)];
     });
 
     if (boundaryRange.location == NSNotFound) {
         return nil; // TODO: no boundary found — wrong separator?
     }
 
-    NSData *boundary = [partsData subdataWithRange:NSMakeRange(0, boundaryRange.location)];
+    NSData *boundary = ({
+        NSMutableData *data = [lineEnd mutableCopy];
+        [data appendData:[partsData subdataWithRange:NSMakeRange(0, boundaryRange.location)]];
+        [data copy];
+    });
 
     NSMutableArray *parts = [[NSMutableArray alloc] init];
 
@@ -61,7 +65,7 @@ NSString *const kMultipartBodyKey = @"body";
             break;
         }
 
-        NSData *partData = [partsData subdataWithRange:NSMakeRange(pos, range.location)];
+        NSData *partData = [partsData subdataWithRange:NSMakeRange(pos, range.location - pos)];
         id part = [self parsePart:partData];
         if (part) {
             [parts addObject:part];
