@@ -16,23 +16,68 @@ NSString *const kMultipartBodyKey = @"body";
 
 @implementation MultipartResponseParser
 
-+ (NSDictionary *)parsePart:(NSData *)data
++ (NSArray *)parseHeaders:(NSData *)data
 {
     NSUInteger len = data.length;
+    NSData *lineSeparator = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
+//    NSData *headerSeparator = [@":" dataUsingEncoding:NSUTF8StringEncoding];
+
+//    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+    NSMutableArray *headers = [[NSMutableArray alloc] init];
+
+    NSUInteger pos = 0;
+    while (pos < len) {
+        NSRange lineSeparatorRange = [data rangeOfData:lineSeparator options:0 range:NSMakeRange(pos, len - pos)];
+        NSData *lineData;
+        if (lineSeparatorRange.location == NSNotFound) {
+            lineData = [data subdataWithRange:NSMakeRange(pos, len - pos)];
+            pos = len;
+        } else {
+            lineData = [data subdataWithRange:NSMakeRange(pos, lineSeparatorRange.location - pos)];
+            pos = NSMaxRange(lineSeparatorRange);
+        }
+
+        [headers addObject:lineData];
+
+//        NSUInteger lineLen = lineData.length;
+//        NSRange headerSeparatorRange = [lineData rangeOfData:headerSeparator options:0 range:NSMakeRange(0, lineLen)];
+//        if (headerSeparatorRange.location == NSNotFound) {
+//            NSLog( @"%s warning: bad header line: %@", __PRETTY_FUNCTION__, [[NSString alloc] initWithData:lineData encoding:NSASCIIStringEncoding] );
+//            continue;
+//        }
+//
+//        NSData *headerNameData = [lineData subdataWithRange:NSMakeRange(0, headerSeparatorRange.location)];
+//
+//        NSUInteger valueStart = NSMaxRange(headerSeparatorRange);
+//        NSData *headerValueData = [lineData subdataWithRange:NSMakeRange(valueStart, lineLen - valueStart)];
+//
+//        NSString *key = [[NSString alloc] initWithData:headerNameData encoding:NSUTF8StringEncoding];
+//        NSString *values = [[NSString alloc] initWithData:headerValueData encoding:NSUTF8StringEncoding];
+//        if (key && values) {
+//            headers[key] = [self parseHeaderValuesFromString:values];
+//        }
+    }
+    
+    return [headers copy];
+}
+
++ (NSDictionary *)parsePart:(NSData *)partData
+{
+    NSUInteger len = partData.length;
     NSData *separator = [@"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding];
 
-    NSRange separatorRange = [data rangeOfData:separator options:0 range:NSMakeRange(0, len)];
+    NSRange separatorRange = [partData rangeOfData:separator options:0 range:NSMakeRange(0, len)];
     if (separatorRange.location == NSNotFound) {
         return nil;
     }
 
-    NSData *headers = [data subdataWithRange:NSMakeRange(0, separatorRange.location)];
+    NSData *headers = [partData subdataWithRange:NSMakeRange(0, separatorRange.location)];
 
     NSUInteger bodyStart = NSMaxRange(separatorRange);
-    NSData *body = [data subdataWithRange:NSMakeRange(bodyStart, len - bodyStart)];
+    NSData *body = [partData subdataWithRange:NSMakeRange(bodyStart, len - bodyStart)];
 
     return @{
-             kMultipartHeadersKey: headers,
+             kMultipartHeadersKey: [self parseHeaders:headers],
              kMultipartBodyKey: body,
              };
 }
@@ -47,7 +92,7 @@ NSString *const kMultipartBodyKey = @"body";
     });
 
     if (boundaryRange.location == NSNotFound) {
-        return nil; // TODO: no boundary found — wrong separator?
+        return nil;
     }
 
     NSData *boundary = ({
@@ -72,6 +117,11 @@ NSString *const kMultipartBodyKey = @"body";
         }
 
         pos = NSMaxRange(range);
+
+        NSRange newLineRange = [partsData rangeOfData:lineEnd options:NSDataSearchAnchored range:NSMakeRange(pos, len - pos)];
+        if (newLineRange.location != NSNotFound) {
+            pos = NSMaxRange(newLineRange);
+        }
     }
 
     return [parts copy];
