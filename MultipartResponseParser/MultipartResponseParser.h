@@ -14,5 +14,5 @@
 
 @end
 
-extern NSString *const kMultipartHeaderKey;
+extern NSString *const kMultipartHeadersKey;
 extern NSString *const kMultipartBodyKey;

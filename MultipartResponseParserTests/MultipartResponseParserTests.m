@@ -42,7 +42,7 @@
 {
     NSDictionary *part = [self.parts firstObject];
     XCTAssert(part[kMultipartBodyKey], @"no part body");
-    XCTAssert(part[kMultipartHeaderKey], @"no part header");
+    XCTAssert(part[kMultipartHeadersKey], @"no part header");
 }
 
 @end

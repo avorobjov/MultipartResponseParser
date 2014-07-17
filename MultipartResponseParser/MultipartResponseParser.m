@@ -8,13 +8,34 @@
 
 #import "MultipartResponseParser.h"
 
-NSString *const kMultipartHeaderKey = @"header";
+NSString *const kMultipartHeadersKey = @"headers";
 NSString *const kMultipartBodyKey = @"body";
 
 @interface MultipartResponseParser ()
 @end
 
 @implementation MultipartResponseParser
+
++ (NSDictionary *)parsePart:(NSData *)data
+{
+    NSUInteger len = data.length;
+    NSData *separator = [@"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSRange separatorRange = [data rangeOfData:separator options:0 range:NSMakeRange(0, len)];
+    if (separatorRange.location == NSNotFound) {
+        return nil;
+    }
+
+    NSData *headers = [data subdataWithRange:NSMakeRange(0, separatorRange.location)];
+
+    NSUInteger bodyStart = NSMaxRange(separatorRange);
+    NSData *body = [data subdataWithRange:NSMakeRange(bodyStart, len - bodyStart)];
+
+    return @{
+             kMultipartHeadersKey: headers,
+             kMultipartBodyKey: body,
+             };
+}
 
 + (NSArray *)splitParts:(NSData *)partsData
 {
@@ -40,8 +61,11 @@ NSString *const kMultipartBodyKey = @"body";
             break;
         }
 
-        NSData *part = [partsData subdataWithRange:NSMakeRange(pos, range.location)];
-        [parts addObject:part];
+        NSData *partData = [partsData subdataWithRange:NSMakeRange(pos, range.location)];
+        id part = [self parsePart:partData];
+        if (part) {
+            [parts addObject:part];
+        }
 
         pos = NSMaxRange(range);
     }
