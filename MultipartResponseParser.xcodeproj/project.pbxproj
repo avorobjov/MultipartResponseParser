@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA296DC4197851E90021FC2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA296DC3197851E90021FC2E /* Foundation.framework */; };
+		FA296DC9197851E90021FC2E /* MultipartResponseParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA296DC8197851E90021FC2E /* MultipartResponseParser.h */; };
+		FA296DCB197851E90021FC2E /* MultipartResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA296DCA197851E90021FC2E /* MultipartResponseParser.m */; };
+		FA296DD2197851E90021FC2E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA296DD1197851E90021FC2E /* XCTest.framework */; };
+		FA296DD3197851E90021FC2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA296DC3197851E90021FC2E /* Foundation.framework */; };
+		FA296DD5197851E90021FC2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA296DD4197851E90021FC2E /* UIKit.framework */; };
+		FA296DD8197851E90021FC2E /* libMultipartResponseParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA296DC0197851E90021FC2E /* libMultipartResponseParser.a */; };
+		FA296DDE197851E90021FC2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA296DDC197851E90021FC2E /* InfoPlist.strings */; };
+		FA296DE0197851E90021FC2E /* MultipartResponseParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA296DD6197851E90021FC2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA296DB8197851E90021FC2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA296DBF197851E90021FC2E;
+			remoteInfo = MultipartResponseParser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA296DBE197851E90021FC2E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				FA296DC9197851E90021FC2E /* MultipartResponseParser.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FA296DC0197851E90021FC2E /* libMultipartResponseParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMultipartResponseParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA296DC3197851E90021FC2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA296DC7197851E90021FC2E /* MultipartResponseParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultipartResponseParser-Prefix.pch"; sourceTree = "<group>"; };
+		FA296DC8197851E90021FC2E /* MultipartResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartResponseParser.h; sourceTree = "<group>"; };
+		FA296DCA197851E90021FC2E /* MultipartResponseParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartResponseParser.m; sourceTree = "<group>"; };
+		FA296DD0197851E90021FC2E /* MultipartResponseParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultipartResponseParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA296DD1197851E90021FC2E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FA296DD4197851E90021FC2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA296DDB197851E90021FC2E /* MultipartResponseParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultipartResponseParserTests-Info.plist"; sourceTree = "<group>"; };
+		FA296DDD197851E90021FC2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartResponseParserTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA296DBD197851E90021FC2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA296DC4197851E90021FC2E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA296DCD197851E90021FC2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA296DD8197851E90021FC2E /* libMultipartResponseParser.a in Frameworks */,
+				FA296DD2197851E90021FC2E /* XCTest.framework in Frameworks */,
+				FA296DD5197851E90021FC2E /* UIKit.framework in Frameworks */,
+				FA296DD3197851E90021FC2E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA296DB7197851E90021FC2E = {
+			isa = PBXGroup;
+			children = (
+				FA296DC5197851E90021FC2E /* MultipartResponseParser */,
+				FA296DD9197851E90021FC2E /* MultipartResponseParserTests */,
+				FA296DC2197851E90021FC2E /* Frameworks */,
+				FA296DC1197851E90021FC2E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA296DC1197851E90021FC2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA296DC0197851E90021FC2E /* libMultipartResponseParser.a */,
+				FA296DD0197851E90021FC2E /* MultipartResponseParserTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA296DC2197851E90021FC2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA296DC3197851E90021FC2E /* Foundation.framework */,
+				FA296DD1197851E90021FC2E /* XCTest.framework */,
+				FA296DD4197851E90021FC2E /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA296DC5197851E90021FC2E /* MultipartResponseParser */ = {
+			isa = PBXGroup;
+			children = (
+				FA296DC8197851E90021FC2E /* MultipartResponseParser.h */,
+				FA296DCA197851E90021FC2E /* MultipartResponseParser.m */,
+				FA296DC6197851E90021FC2E /* Supporting Files */,
+			);
+			path = MultipartResponseParser;
+			sourceTree = "<group>";
+		};
+		FA296DC6197851E90021FC2E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA296DC7197851E90021FC2E /* MultipartResponseParser-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA296DD9197851E90021FC2E /* MultipartResponseParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */,
+				FA296DDA197851E90021FC2E /* Supporting Files */,
+			);
+			path = MultipartResponseParserTests;
+			sourceTree = "<group>";
+		};
+		FA296DDA197851E90021FC2E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA296DDB197851E90021FC2E /* MultipartResponseParserTests-Info.plist */,
+				FA296DDC197851E90021FC2E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA296DBF197851E90021FC2E /* MultipartResponseParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA296DE3197851E90021FC2E /* Build configuration list for PBXNativeTarget "MultipartResponseParser" */;
+			buildPhases = (
+				FA296DBC197851E90021FC2E /* Sources */,
+				FA296DBD197851E90021FC2E /* Frameworks */,
+				FA296DBE197851E90021FC2E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultipartResponseParser;
+			productName = MultipartResponseParser;
+			productReference = FA296DC0197851E90021FC2E /* libMultipartResponseParser.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FA296DCF197851E90021FC2E /* MultipartResponseParserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA296DE6197851E90021FC2E /* Build configuration list for PBXNativeTarget "MultipartResponseParserTests" */;
+			buildPhases = (
+				FA296DCC197851E90021FC2E /* Sources */,
+				FA296DCD197851E90021FC2E /* Frameworks */,
+				FA296DCE197851E90021FC2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA296DD7197851E90021FC2E /* PBXTargetDependency */,
+			);
+			name = MultipartResponseParserTests;
+			productName = MultipartResponseParserTests;
+			productReference = FA296DD0197851E90021FC2E /* MultipartResponseParserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA296DB8197851E90021FC2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Alexander Vorobjov";
+			};
+			buildConfigurationList = FA296DBB197851E90021FC2E /* Build configuration list for PBXProject "MultipartResponseParser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA296DB7197851E90021FC2E;
+			productRefGroup = FA296DC1197851E90021FC2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA296DBF197851E90021FC2E /* MultipartResponseParser */,
+				FA296DCF197851E90021FC2E /* MultipartResponseParserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA296DCE197851E90021FC2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA296DDE197851E90021FC2E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA296DBC197851E90021FC2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA296DCB197851E90021FC2E /* MultipartResponseParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA296DCC197851E90021FC2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA296DE0197851E90021FC2E /* MultipartResponseParserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA296DD7197851E90021FC2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA296DBF197851E90021FC2E /* MultipartResponseParser */;
+			targetProxy = FA296DD6197851E90021FC2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA296DDC197851E90021FC2E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA296DDD197851E90021FC2E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA296DE1197851E90021FC2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA296DE2197851E90021FC2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA296DE4197851E90021FC2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MultipartResponseParser.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultipartResponseParser/MultipartResponseParser-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FA296DE5197851E90021FC2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MultipartResponseParser.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultipartResponseParser/MultipartResponseParser-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FA296DE7197851E90021FC2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultipartResponseParser/MultipartResponseParser-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MultipartResponseParserTests/MultipartResponseParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FA296DE8197851E90021FC2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultipartResponseParser/MultipartResponseParser-Prefix.pch";
+				INFOPLIST_FILE = "MultipartResponseParserTests/MultipartResponseParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA296DBB197851E90021FC2E /* Build configuration list for PBXProject "MultipartResponseParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA296DE1197851E90021FC2E /* Debug */,
+				FA296DE2197851E90021FC2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA296DE3197851E90021FC2E /* Build configuration list for PBXNativeTarget "MultipartResponseParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA296DE4197851E90021FC2E /* Debug */,
+				FA296DE5197851E90021FC2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA296DE6197851E90021FC2E /* Build configuration list for PBXNativeTarget "MultipartResponseParserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA296DE7197851E90021FC2E /* Debug */,
+				FA296DE8197851E90021FC2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA296DB8197851E90021FC2E /* Project object */;
+}
