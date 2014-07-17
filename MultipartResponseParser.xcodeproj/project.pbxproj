@@ -16,6 +16,7 @@
 		FA296DD8197851E90021FC2E /* libMultipartResponseParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA296DC0197851E90021FC2E /* libMultipartResponseParser.a */; };
 		FA296DDE197851E90021FC2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA296DDC197851E90021FC2E /* InfoPlist.strings */; };
 		FA296DE0197851E90021FC2E /* MultipartResponseParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */; };
+		FA296DEA197852120021FC2E /* response.data in Resources */ = {isa = PBXBuildFile; fileRef = FA296DE9197852120021FC2E /* response.data */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FA296DDB197851E90021FC2E /* MultipartResponseParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultipartResponseParserTests-Info.plist"; sourceTree = "<group>"; };
 		FA296DDD197851E90021FC2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartResponseParserTests.m; sourceTree = "<group>"; };
+		FA296DE9197852120021FC2E /* response.data */ = {isa = PBXFileReference; lastKnownFileType = file; path = response.data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		FA296DD9197851E90021FC2E /* MultipartResponseParserTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA296DE9197852120021FC2E /* response.data */,
 				FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */,
 				FA296DDA197851E90021FC2E /* Supporting Files */,
 			);
@@ -213,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA296DEA197852120021FC2E /* response.data in Resources */,
 				FA296DDE197851E90021FC2E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
