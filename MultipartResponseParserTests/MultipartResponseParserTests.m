@@ -64,4 +64,14 @@
     }
 }
 
+- (void)testContentDisposition
+{
+    // Content-Disposition: form-data; name="2793dfd2-7f5a-4b13-931e-5a9aa6b5fdce;1076"; filename="eb691f45-20d5-4add-b787-9b2b9bae4b25"
+    NSDictionary *cd = [self.parts firstObject][kMultipartHeadersKey][@"Content-Disposition"];
+    XCTAssert(cd, @"Content-Disposition not found");
+
+    NSArray *keys = [cd allKeys];
+    XCTAssertEqual(keys.count, 3, @"bad keys count");
+}
+
 @end
