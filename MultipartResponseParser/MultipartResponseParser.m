@@ -16,14 +16,42 @@ NSString *const kMultipartBodyKey = @"body";
 
 @implementation MultipartResponseParser
 
++ (NSString *)headerStringFromData:(NSData *)data
+{
+    NSString *rawString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSString *trimmedString = [rawString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return [trimmedString stringByRemovingPercentEncoding];
+}
+
++ (void)splitHeaderFromData:(NSData *)data toDictionary:(NSMutableDictionary *)result
+{
+    NSUInteger len = data.length;
+    NSData *keySeparator = [@":" dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSRange keySeparatorRange = [data rangeOfData:keySeparator options:0 range:NSMakeRange(0, len)];
+    if (keySeparatorRange.location == NSNotFound) {
+        NSLog( @"%s warning: bad header line: %@", __PRETTY_FUNCTION__, [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] );
+        return;
+    }
+
+    NSData *keyData = [data subdataWithRange:NSMakeRange(0, keySeparatorRange.location)];
+
+    NSUInteger valueStart = NSMaxRange(keySeparatorRange);
+    NSData *valueData = [data subdataWithRange:NSMakeRange(valueStart, len - valueStart)];
+
+    NSString *key = [self headerStringFromData:keyData];
+//    NSString *values = [[NSString alloc] initWithData:headerValueData encoding:NSUTF8StringEncoding];
+    if (key && valueData) {
+        result[key] = valueData;//[self parseHeaderValuesFromString:values];
+    }
+}
+
 + (NSArray *)parseHeaders:(NSData *)data
 {
     NSUInteger len = data.length;
     NSData *lineSeparator = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
-//    NSData *headerSeparator = [@":" dataUsingEncoding:NSUTF8StringEncoding];
 
-//    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    NSMutableArray *headers = [[NSMutableArray alloc] init];
+    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
 
     NSUInteger pos = 0;
     while (pos < len) {
@@ -37,25 +65,7 @@ NSString *const kMultipartBodyKey = @"body";
             pos = NSMaxRange(lineSeparatorRange);
         }
 
-        [headers addObject:lineData];
-
-//        NSUInteger lineLen = lineData.length;
-//        NSRange headerSeparatorRange = [lineData rangeOfData:headerSeparator options:0 range:NSMakeRange(0, lineLen)];
-//        if (headerSeparatorRange.location == NSNotFound) {
-//            NSLog( @"%s warning: bad header line: %@", __PRETTY_FUNCTION__, [[NSString alloc] initWithData:lineData encoding:NSASCIIStringEncoding] );
-//            continue;
-//        }
-//
-//        NSData *headerNameData = [lineData subdataWithRange:NSMakeRange(0, headerSeparatorRange.location)];
-//
-//        NSUInteger valueStart = NSMaxRange(headerSeparatorRange);
-//        NSData *headerValueData = [lineData subdataWithRange:NSMakeRange(valueStart, lineLen - valueStart)];
-//
-//        NSString *key = [[NSString alloc] initWithData:headerNameData encoding:NSUTF8StringEncoding];
-//        NSString *values = [[NSString alloc] initWithData:headerValueData encoding:NSUTF8StringEncoding];
-//        if (key && values) {
-//            headers[key] = [self parseHeaderValuesFromString:values];
-//        }
+        [self splitHeaderFromData:lineData toDictionary:headers];
     }
     
     return [headers copy];

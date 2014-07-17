@@ -108,24 +108,24 @@
     XCTAssertEqual(htmlHeaders.count, self.htmlHeaders.count, @"bad html headers count");
 }
 
-- (void)testCssHeaders
-{
-    NSArray *cssHeaders = self.parts[0][kMultipartHeadersKey];
-    XCTAssertEqual(cssHeaders.count, self.cssHeaders.count, @"bad css headers count");
-
-    for (int i = 0; i < cssHeaders.count; ++i) {
-        XCTAssertEqualObjects(cssHeaders[i], [self.cssHeaders[i] dataUsingEncoding:NSUTF8StringEncoding], @"bad css header content");
-    }
-}
-
-- (void)testHtmlHeaders
-{
-    NSArray *htmlHeaders = self.parts[1][kMultipartHeadersKey];
-    XCTAssertEqual(htmlHeaders.count, self.htmlHeaders.count, @"bad html headers count");
-
-    for (int i = 0; i < htmlHeaders.count; ++i) {
-        XCTAssertEqualObjects(htmlHeaders[i], [self.htmlHeaders[i] dataUsingEncoding:NSUTF8StringEncoding], @"bad html header content");
-    }
-}
+//- (void)testCssHeaders
+//{
+//    NSArray *cssHeaders = self.parts[0][kMultipartHeadersKey];
+//    XCTAssertEqual(cssHeaders.count, self.cssHeaders.count, @"bad css headers count");
+//
+//    for (int i = 0; i < cssHeaders.count; ++i) {
+//        XCTAssertEqualObjects(cssHeaders[i], [self.cssHeaders[i] dataUsingEncoding:NSUTF8StringEncoding], @"bad css header content");
+//    }
+//}
+//
+//- (void)testHtmlHeaders
+//{
+//    NSArray *htmlHeaders = self.parts[1][kMultipartHeadersKey];
+//    XCTAssertEqual(htmlHeaders.count, self.htmlHeaders.count, @"bad html headers count");
+//
+//    for (int i = 0; i < htmlHeaders.count; ++i) {
+//        XCTAssertEqualObjects(htmlHeaders[i], [self.htmlHeaders[i] dataUsingEncoding:NSUTF8StringEncoding], @"bad html header content");
+//    }
+//}
 
 @end
