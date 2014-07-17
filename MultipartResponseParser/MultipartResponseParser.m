@@ -16,11 +16,15 @@ NSString *const kMultipartBodyKey = @"body";
 
 @implementation MultipartResponseParser
 
-+ (NSString *)headerStringFromData:(NSData *)data
++ (NSString *)trimmedStringFromData:(NSData *)data
 {
-    NSString *rawString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSString *trimmedString = [rawString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    return [trimmedString stringByRemovingPercentEncoding];
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
++ (NSDictionary *)headerValuesFromString:(NSString *)values
+{
+    return nil;
 }
 
 + (void)splitHeaderFromData:(NSData *)data toDictionary:(NSMutableDictionary *)result
@@ -39,10 +43,10 @@ NSString *const kMultipartBodyKey = @"body";
     NSUInteger valueStart = NSMaxRange(keySeparatorRange);
     NSData *valueData = [data subdataWithRange:NSMakeRange(valueStart, len - valueStart)];
 
-    NSString *key = [self headerStringFromData:keyData];
-//    NSString *values = [[NSString alloc] initWithData:headerValueData encoding:NSUTF8StringEncoding];
-    if (key && valueData) {
-        result[key] = valueData;//[self parseHeaderValuesFromString:values];
+    NSString *key = [self trimmedStringFromData:keyData];
+    NSString *values = [self trimmedStringFromData:valueData];
+    if (key && values) {
+        result[key] = [self headerValuesFromString:values];
     }
 }
 
