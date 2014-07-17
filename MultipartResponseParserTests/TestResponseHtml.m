@@ -99,4 +99,13 @@
     XCTAssertEqualObjects(htmlBody, self.htmlBody, @"bad html body");
 }
 
+- (void)testHeadersCount
+{
+    NSArray *cssHeaders = self.parts[0][kMultipartHeadersKey];
+    XCTAssertEqual(cssHeaders.count, self.cssHeaders.count, @"bad css headers count");
+
+    NSArray *htmlHeaders = self.parts[1][kMultipartHeadersKey];
+    XCTAssertEqual(htmlHeaders.count, self.htmlHeaders.count, @"bad html headers count");
+}
+
 @end

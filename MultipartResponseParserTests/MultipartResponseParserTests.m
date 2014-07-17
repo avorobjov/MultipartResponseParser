@@ -53,4 +53,10 @@
     XCTAssertEqual(body.length, 1088, @"bad body length");  // correct length 1076 ?? (from headers)
 }
 
+- (void)testHeadersCount
+{
+    NSArray *headers = [self.parts firstObject][kMultipartHeadersKey];
+    XCTAssertEqual(headers.count, 3, @"bad css headers count");
+}
+
 @end
