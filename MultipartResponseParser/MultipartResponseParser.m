@@ -8,6 +8,9 @@
 
 #import "MultipartResponseParser.h"
 
+NSString *const kMultipartHeaderKey = @"header";
+NSString *const kMultipartBodyKey = @"body";
+
 @interface MultipartResponseParser ()
 @end
 

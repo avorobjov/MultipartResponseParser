@@ -12,6 +12,8 @@
 
 @interface MultipartResponseParserTests : XCTestCase
 
+@property (strong, nonatomic) NSArray *parts;
+
 @end
 
 @implementation MultipartResponseParserTests
@@ -19,7 +21,10 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"response" ofType:@"data"]];
+
+    self.parts = [MultipartResponseParser parseData:data];
 }
 
 - (void)tearDown
@@ -28,12 +33,16 @@
     [super tearDown];
 }
 
-- (void)testResponseData
+- (void)testPartsCount
 {
-    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"response" ofType:@"data"]];
+    XCTAssertEqual(self.parts.count, 1, @"bad parts count");
+}
 
-    NSArray *items = [MultipartResponseParser parseData:data];
-    XCTAssertEqual(items.count, 1, @"bad parts count");
+- (void)testPartContent
+{
+    NSDictionary *part = [self.parts firstObject];
+    XCTAssert(part[kMultipartBodyKey], @"no part body");
+    XCTAssert(part[kMultipartHeaderKey], @"no part header");
 }
 
 @end

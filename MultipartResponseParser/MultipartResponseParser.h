@@ -13,3 +13,6 @@
 + (NSArray *)parseData:(NSData *)data;
 
 @end
+
+extern NSString *const kMultipartHeaderKey;
+extern NSString *const kMultipartBodyKey;
