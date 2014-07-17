@@ -18,6 +18,7 @@
 		FA296DE0197851E90021FC2E /* MultipartResponseParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */; };
 		FA296DEA197852120021FC2E /* response.data in Resources */ = {isa = PBXBuildFile; fileRef = FA296DE9197852120021FC2E /* response.data */; };
 		FA296DEE19785B8C0021FC2E /* TestResponseHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = FA296DED19785B8C0021FC2E /* TestResponseHtml.m */; };
+		FA80C70219787A6E00564350 /* HeaderValuesParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80C70119787A6E00564350 /* HeaderValuesParserTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartResponseParserTests.m; sourceTree = "<group>"; };
 		FA296DE9197852120021FC2E /* response.data */ = {isa = PBXFileReference; lastKnownFileType = file; path = response.data; sourceTree = "<group>"; };
 		FA296DED19785B8C0021FC2E /* TestResponseHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResponseHtml.m; sourceTree = "<group>"; };
+		FA80C70119787A6E00564350 /* HeaderValuesParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderValuesParserTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				FA296DE9197852120021FC2E /* response.data */,
 				FA296DDF197851E90021FC2E /* MultipartResponseParserTests.m */,
 				FA296DED19785B8C0021FC2E /* TestResponseHtml.m */,
+				FA80C70119787A6E00564350 /* HeaderValuesParserTests.m */,
 				FA296DDA197851E90021FC2E /* Supporting Files */,
 			);
 			path = MultipartResponseParserTests;
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA296DE0197851E90021FC2E /* MultipartResponseParserTests.m in Sources */,
+				FA80C70219787A6E00564350 /* HeaderValuesParserTests.m in Sources */,
 				FA296DEE19785B8C0021FC2E /* TestResponseHtml.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

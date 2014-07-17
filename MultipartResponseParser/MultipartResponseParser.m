@@ -24,7 +24,59 @@ NSString *const kMultipartBodyKey = @"body";
 
 + (NSDictionary *)headerValuesFromString:(NSString *)values
 {
-    return nil;
+    NSScanner *scanner = [NSScanner scannerWithString:values];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+
+    // separator - equal - quote
+    NSCharacterSet *sq = [NSCharacterSet characterSetWithCharactersInString:@";\""];
+    NSCharacterSet *se = [NSCharacterSet characterSetWithCharactersInString:@";="];
+
+    NSString *key;
+    NSString *tmp;
+    while (![scanner isAtEnd] || key) {
+        if (key) {
+            if (![scanner scanUpToCharactersFromSet:sq intoString:&tmp]) {
+                tmp = @"";
+            }
+
+            if ([scanner scanString:@"\"" intoString:NULL]) {
+                scanner.charactersToBeSkipped = nil;
+                [scanner scanUpToString:@"\"" intoString:&tmp];
+                [scanner scanString:@"\"" intoString:NULL];
+                [scanner scanString:@";" intoString:NULL];
+                scanner.charactersToBeSkipped = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+
+                result[key] = [tmp copy];
+                key = nil;
+                continue;
+            }
+
+            if ([scanner scanString:@";" intoString:NULL]) {
+                result[key] = [tmp copy];
+                key = nil;
+                continue;
+            }
+
+            result[key] = tmp? [tmp copy] : @"";
+            key = nil;
+        } else {
+            if (![scanner scanUpToCharactersFromSet:se intoString:&tmp]) {
+                [scanner scanCharactersFromSet:se intoString:NULL];
+                continue;
+            }
+
+            key = [tmp copy];
+
+            if ([scanner scanString:@";" intoString:NULL]) {
+                result[key] = @"";
+                key = nil;
+            } else {
+                [scanner scanString:@"=" intoString:NULL];
+            }
+        }
+    }
+
+    return [result copy];
 }
 
 + (void)splitHeaderFromData:(NSData *)data toDictionary:(NSMutableDictionary *)result
