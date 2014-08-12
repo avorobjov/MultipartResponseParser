@@ -102,7 +102,7 @@ NSString *const kMultipartBodyKey = @"body";
     }
 }
 
-+ (NSArray *)parseHeaders:(NSData *)data
++ (NSDictionary *)parseHeaders:(NSData *)data
 {
     NSUInteger len = data.length;
     NSData *lineSeparator = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
